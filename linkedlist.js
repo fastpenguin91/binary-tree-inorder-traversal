@@ -8,8 +8,13 @@ class LinkedListNode2 {
 }
 
 /*const root = new LinkedListNode2("1");
+root.left = new LinkedListNode2("4");
+root.left.left = new LinkedListNode2("2");
+root.right = new LinkedListNode2("3"); */
+
+/*const root = new LinkedListNode2("1");
 root.right = new LinkedListNode2("2");
-root.right.left = new LinkedListNode2("3");*/
+root.right.left = new LinkedListNode2("3"); */
 
 const root = new LinkedListNode2("F");
 root.right = new LinkedListNode2("G");
@@ -31,17 +36,6 @@ root.left.right.right = new LinkedListNode2("E");
 let current = root;
 let outputArr = [];
 let myNodeTree = [root];
-let loopBreak = 0;
-
-function printList() {
-  let str = "";
-  myNodeTree.forEach(function(element) {
-    str += element.val + " ";
-  });
-
-  console.log(str);
-
-}
 
 function goLeft() {
   current = current.left;
@@ -80,8 +74,6 @@ while (myNodeTree.length >= 1) {
 
   addToOutput();
 
-  console.log(outputArr);
-
   if (current.right) {
     goRight();
   };
@@ -100,11 +92,6 @@ while (myNodeTree.length >= 1) {
     moveUpNodeTree();
     removeRightNode();
   }
-
-//  loopBreak++;
-//  if (loopBreak > 10 ) {
-//    break;
-//  }
 
 }
 
