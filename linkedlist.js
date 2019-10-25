@@ -45,16 +45,20 @@ function printList() {
 
 function goLeft() {
   current = current.left;
+  myNodeTree.push(current);
 }
 
 function goRight() {
   current = current.right;
+  myNodeTree.push(current);
 }
 
 function moveUpNodeTree() {
   myNodeTree.pop();
   current = myNodeTree.slice(-1)[0];
-  current.left = null;
+  if (current) {
+    current.left = null;
+  }
 }
 
 function addToOutput(){
@@ -72,7 +76,6 @@ while (myNodeTree.length >= 1) {
 
   while (current.left) {
     goLeft();
-    myNodeTree.push(current);
   }
 
   addToOutput();
@@ -80,31 +83,28 @@ while (myNodeTree.length >= 1) {
   console.log(outputArr);
 
   if (current.right) {
-    console.log("right is available");
     goRight();
-    myNodeTree.push(current);
-    console.log(myNodeTree);
   };
 
   moveUpNodeTree();
-  addToOutput();
-  console.log(outputArr);
-
-  if (!current.left && current.right){
-    goRight();
-    myNodeTree.push(current);
+  if (current) {
+    addToOutput();
   }
 
-  if (!current.left && !current.right) {
+  if (current && !current.left && current.right){
+    goRight();
+  }
+
+  if (current && !current.left && !current.right) {
     addToOutput();
     moveUpNodeTree();
     removeRightNode();
   }
 
-  loopBreak++;
-  if (loopBreak > 10 ) {
-    break;
-  }
+//  loopBreak++;
+//  if (loopBreak > 10 ) {
+//    break;
+//  }
 
 }
 
