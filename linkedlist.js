@@ -1,11 +1,8 @@
 
-class LinkedListNode2 {
-  constructor(data) {
-    this.val = data;
-    this.right = null;
-    this.left = null;
-  }
-}
+
+// Everything works below for the abcdefghi test
+
+
 
 /*const root = new LinkedListNode2("1");
 root.left = new LinkedListNode2("4");
@@ -15,6 +12,17 @@ root.right = new LinkedListNode2("3"); */
 /*const root = new LinkedListNode2("1");
 root.right = new LinkedListNode2("2");
 root.right.left = new LinkedListNode2("3"); */
+
+
+
+class LinkedListNode2 {
+  constructor(data) {
+    this.val = data;
+    this.right = null;
+    this.left = null;
+  }
+}
+
 
 const root = new LinkedListNode2("F");
 root.right = new LinkedListNode2("G");
@@ -106,7 +114,12 @@ console.log(outputArr);
 
 
 
+// only add to output when there's no left? ???
 
+// add A . NO LEFT. Move UP Remove A.
+// add B. NO LEFT. Move RIGHT.
+// add C. NO LEFT. No RIGHT. MOVE UP. Remove C.
+// add D. NO LEFT. 
 
 
 
